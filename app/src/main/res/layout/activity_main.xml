@@ -5,6 +5,86 @@
     android:layout_height="match_parent"
     tools:context="com.visualisation.card_simulator.MainActivity">
 
+<!--
+    <ImageView
+        android:id="@+id/player1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/player"
+        android:layout_centerVertical="true" />
+
+    <ImageView
+        android:id="@+id/player2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/player"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/player3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/player"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true" />
+-->
+
+    <LinearLayout
+        android:id="@+id/player1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerVertical="true">
+        <ImageView
+
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/player"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="player1"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/player2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_centerHorizontal="true">
+        <ImageView
+
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/player"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="player2"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/player3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true">
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/player"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="player3"/>
+    </LinearLayout>
+
+
+
     <ImageView
         android:id="@+id/carte"
         android:layout_width="112dp"
@@ -26,4 +106,7 @@
         android:src="@drawable/carte"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
+
+
+
 </RelativeLayout>

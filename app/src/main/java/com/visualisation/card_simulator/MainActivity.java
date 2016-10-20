@@ -1,13 +1,18 @@
 package com.visualisation.card_simulator;
 
 
+import android.graphics.Color;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -24,6 +29,7 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         ArrayList<ImageView> tab_carte = new ArrayList<ImageView>();
+        final ArrayList<LinearLayout> tab_player = new ArrayList<LinearLayout>();
 
         /***********************************************************************/
         /* TO ADD A CARD, YOU JUST HAVE TO PUT A NEW LINE JUST AFTER AND IT WILL
@@ -36,12 +42,15 @@ public class MainActivity extends AppCompatActivity{
         tab_carte.add((ImageView) (findViewById(R.id.carte3)));
 
         /***********************************************************************/
+        tab_player.add((LinearLayout)(findViewById(R.id.player1)));
+        tab_player.add((LinearLayout)(findViewById(R.id.player2)));
+        tab_player.add((LinearLayout)(findViewById(R.id.player3)));
+
 
 
         for(final ImageView carte : tab_carte){
 
-            //carte.setScaleX(0.5f);
-            //carte.setScaleY(0.5f);
+
             carte.setOnTouchListener(new View.OnTouchListener() {
 
                 @Override
@@ -72,6 +81,23 @@ public class MainActivity extends AppCompatActivity{
                             carte.setY(carte.getY() + deplY);
 
 
+                            for(final LinearLayout player : tab_player){
+                                if(carte.getX() <= (player.getX() + player.getWidth())
+                                        && carte.getX() >= (player.getX() - carte.getWidth())
+                                        && carte.getY() <= (player.getY() + player.getHeight())
+                                        && carte.getY() >= (player.getY() - carte.getHeight())){
+
+                                    collision(player);
+
+                                }
+                                else{
+                                    ImageView i = (ImageView)player.getChildAt(0);
+                                    i.setColorFilter(Color.TRANSPARENT);
+                                }
+                            }
+
+
+
                             break;
 
                         case MotionEvent.ACTION_UP:
@@ -86,5 +112,10 @@ public class MainActivity extends AppCompatActivity{
 
         }
 
+    }
+
+    public void collision(LinearLayout player){
+        ImageView i = (ImageView)player.getChildAt(0);
+        i.setColorFilter(Color.BLUE);
     }
 }
