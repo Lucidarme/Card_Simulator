@@ -4,14 +4,18 @@ package com.visualisation.card_simulator;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.Image;
+import android.net.Uri;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -35,9 +39,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     HashMap<ImageView, Float> hash_pos_precX = new HashMap<ImageView, Float>();
     HashMap<ImageView, Float> hash_pos_precY = new HashMap<ImageView, Float>();
+    HashMap<ImageView, Carte> hash_carte = new HashMap<ImageView, Carte>();
     private GoogleApiClient mGoogleApiClient;
-
-
 
 
     @Override
@@ -59,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         });
 
 
+
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
@@ -66,8 +70,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 // add other APIs and scopes here as needed
                 .build();
 
-        Log.d("COUCOU","GoogleApiCLient.builder");
-
+        Log.d("COUCOU", "GoogleApiCLient.builder");
 
 
         ArrayList<ImageView> tab_carte = new ArrayList<ImageView>();
@@ -79,30 +82,79 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         /*  Of course you also have to add a card in activity_main.xml
         /***********************************************************************/
 
-        tab_carte.add((ImageView) (findViewById(R.id.carte)));
-        tab_carte.add((ImageView) (findViewById(R.id.carte2)));
-        tab_carte.add((ImageView) (findViewById(R.id.carte3)));
+        tab_carte.add((ImageView) (findViewById(R.id.c1)));
+        tab_carte.add((ImageView) (findViewById(R.id.d1)));
+        tab_carte.add((ImageView) (findViewById(R.id.h1)));
+        tab_carte.add((ImageView) (findViewById(R.id.s1)));
+        tab_carte.add((ImageView) (findViewById(R.id.c2)));
+        tab_carte.add((ImageView) (findViewById(R.id.d2)));
+        tab_carte.add((ImageView) (findViewById(R.id.h2)));
+        tab_carte.add((ImageView) (findViewById(R.id.s2)));
+        tab_carte.add((ImageView) (findViewById(R.id.c3)));
+        tab_carte.add((ImageView) (findViewById(R.id.d3)));
+        tab_carte.add((ImageView) (findViewById(R.id.h3)));
+        tab_carte.add((ImageView) (findViewById(R.id.s3)));
+        tab_carte.add((ImageView) (findViewById(R.id.c4)));
+        tab_carte.add((ImageView) (findViewById(R.id.d4)));
+        tab_carte.add((ImageView) (findViewById(R.id.h4)));
+        tab_carte.add((ImageView) (findViewById(R.id.s4)));
+        tab_carte.add((ImageView) (findViewById(R.id.c5)));
+        tab_carte.add((ImageView) (findViewById(R.id.d5)));
+        tab_carte.add((ImageView) (findViewById(R.id.h5)));
+        tab_carte.add((ImageView) (findViewById(R.id.s5)));
+        tab_carte.add((ImageView) (findViewById(R.id.c6)));
+        tab_carte.add((ImageView) (findViewById(R.id.d6)));
+        tab_carte.add((ImageView) (findViewById(R.id.h6)));
+        tab_carte.add((ImageView) (findViewById(R.id.s6)));
+        tab_carte.add((ImageView) (findViewById(R.id.c7)));
+        tab_carte.add((ImageView) (findViewById(R.id.d7)));
+        tab_carte.add((ImageView) (findViewById(R.id.h7)));
+        tab_carte.add((ImageView) (findViewById(R.id.s7)));
+        tab_carte.add((ImageView) (findViewById(R.id.c8)));
+        tab_carte.add((ImageView) (findViewById(R.id.d8)));
+        tab_carte.add((ImageView) (findViewById(R.id.h8)));
+        tab_carte.add((ImageView) (findViewById(R.id.s8)));
+        tab_carte.add((ImageView) (findViewById(R.id.c9)));
+        tab_carte.add((ImageView) (findViewById(R.id.d9)));
+        tab_carte.add((ImageView) (findViewById(R.id.h9)));
+        tab_carte.add((ImageView) (findViewById(R.id.s9)));
+        tab_carte.add((ImageView) (findViewById(R.id.c10)));
+        tab_carte.add((ImageView) (findViewById(R.id.d10)));
+        tab_carte.add((ImageView) (findViewById(R.id.h10)));
+        tab_carte.add((ImageView) (findViewById(R.id.s10)));
+        tab_carte.add((ImageView) (findViewById(R.id.c11)));
+        tab_carte.add((ImageView) (findViewById(R.id.d11)));
+        tab_carte.add((ImageView) (findViewById(R.id.h11)));
+        tab_carte.add((ImageView) (findViewById(R.id.s11)));
+        tab_carte.add((ImageView) (findViewById(R.id.c12)));
+        tab_carte.add((ImageView) (findViewById(R.id.d12)));
+        tab_carte.add((ImageView) (findViewById(R.id.h12)));
+        tab_carte.add((ImageView) (findViewById(R.id.s12)));
+        tab_carte.add((ImageView) (findViewById(R.id.c13)));
+        tab_carte.add((ImageView) (findViewById(R.id.d13)));
+        tab_carte.add((ImageView) (findViewById(R.id.h13)));
+        tab_carte.add((ImageView) (findViewById(R.id.s13)));
 
         /***********************************************************************/
-        tab_player.add((LinearLayout)(findViewById(R.id.player1)));
-        tab_player.add((LinearLayout)(findViewById(R.id.player2)));
-        tab_player.add((LinearLayout)(findViewById(R.id.player3)));
+        tab_player.add((LinearLayout) (findViewById(R.id.player1)));
+        tab_player.add((LinearLayout) (findViewById(R.id.player2)));
+        tab_player.add((LinearLayout) (findViewById(R.id.player3)));
 
 
+        for (final ImageView carte : tab_carte) {
 
-        for(final ImageView carte : tab_carte){
+            hash_carte.put(carte, new Carte());
 
             carte.setOnTouchListener(new View.OnTouchListener() {
 
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
-                    switch(event.getAction())
-                    {
+                    switch (event.getAction()) {
                         case MotionEvent.ACTION_DOWN:
 
                             carte.bringToFront();
-                            hash_pos_precX.put(carte,event.getRawX());
-                            hash_pos_precY.put(carte,event.getRawY());
+                            hash_pos_precX.put(carte, event.getRawX());
+                            hash_pos_precY.put(carte, event.getRawY());
 
                             break;
                         case MotionEvent.ACTION_MOVE:
@@ -122,27 +174,43 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                             carte.setY(carte.getY() + deplY);
 
 
-                            for(final LinearLayout player : tab_player){
-                                if(carte.getX() <= (player.getX() + player.getWidth())
+                            for (final LinearLayout player : tab_player) {
+                                if (carte.getX() <= (player.getX() + player.getWidth())
                                         && carte.getX() >= (player.getX() - carte.getWidth())
                                         && carte.getY() <= (player.getY() + player.getHeight())
-                                        && carte.getY() >= (player.getY() - carte.getHeight())){
+                                        && carte.getY() >= (player.getY() - carte.getHeight())) {
 
-                                    collision(player);
+                                    collisionWithPlayer(player);
 
-                                }
-                                else{
-                                    ImageView i = (ImageView)player.getChildAt(0);
+                                } else {
+                                    ImageView i = (ImageView) player.getChildAt(0);
                                     i.setColorFilter(Color.TRANSPARENT);
                                 }
                             }
 
 
-
                             break;
 
                         case MotionEvent.ACTION_UP:
+                            ImageView plateau = (ImageView) findViewById(R.id.plateau_carte);
+                            for (final LinearLayout player : tab_player) {
+                                if (carte.getX() <= (player.getX() + player.getWidth())
+                                        && carte.getX() >= (player.getX() - carte.getWidth())
+                                        && carte.getY() <= (player.getY() + player.getHeight())
+                                        && carte.getY() >= (player.getY() - carte.getHeight())) {
 
+                                    dropOnPLayer(player, carte);
+
+                                }else if(carte.getX() <= (plateau.getX() + plateau.getWidth())
+                                        && carte.getX() >= (plateau.getX() - carte.getWidth())
+                                        && carte.getY() <= (plateau.getY() + plateau.getHeight())
+                                        && carte.getY() >= (plateau.getY() - carte.getHeight())){
+
+                                    dropOnPlateau(carte);
+                                }
+
+
+                            }
                             break;
                         default:
                             break;
@@ -155,17 +223,36 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
     }
 
-    public void collision(LinearLayout player){
+    public void collisionWithPlayer(LinearLayout player){
         ImageView i = (ImageView)player.getChildAt(0);
         i.setColorFilter(Color.BLUE);
     }
 
+    public void dropOnPLayer(LinearLayout player, ImageView im_carte){
+        ImageView i = (ImageView)player.getChildAt(0);
+        i.setColorFilter(Color.TRANSPARENT);
+
+        hash_carte.get(im_carte).state = Card_states.AUTRES;
+        im_carte.setVisibility(View.GONE);
+    }
+
+    public void dropOnPlateau(ImageView carte){
+        ImageView plateau = (ImageView) findViewById(R.id.plateau_carte);
+        carte.setY(plateau.getY() - carte.getHeight() + plateau.getHeight());
+        hash_carte.get(carte).state = Card_states.MOI;
+    }
+
+
+    /**
+     *  GOOGLE PLAY GAMES API
+     */
 
     @Override
     protected void onStart() {
         super.onStart();
-        Log.d("COUCOU","onSTart");
+        Log.d("COUCOU", "onSTart");
         mGoogleApiClient.connect();
+
     }
 
     @Override
@@ -257,5 +344,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
         findViewById(R.id.sign_out_button).setVisibility(View.GONE);
     }
+
+
 
 }
