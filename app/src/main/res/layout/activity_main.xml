@@ -20,6 +20,22 @@
         android:visibility="gone" />
 
 
+    <Button
+        android:id="@+id/quick_match"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quick game"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:visibility="gone"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/leave_game"
+        android:text="Leave"
+        android:visibility="gone"/>
     <!--
         <ImageView
             android:id="@+id/player1"
@@ -49,7 +65,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:layout_centerVertical="true">
+        android:layout_centerVertical="true"
+        android:visibility="gone">
         <ImageView
 
             android:layout_width="50dp"
@@ -86,7 +103,8 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_alignParentRight="true"
-        android:layout_centerVertical="true">
+        android:layout_centerVertical="true"
+        android:visibility="gone">
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
@@ -485,6 +503,8 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="40dp" />
+
+
 
 
 </RelativeLayout>

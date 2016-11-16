@@ -1,14 +1,20 @@
 package com.visualisation.card_simulator;
 
+import android.widget.ImageView;
+
 /**
  * Created by lucidarme on 26/10/16.
  */
 
 public class Carte {
-    Card_states state;
+    public Card_states state;
+    public int ID;
+    public ImageView imageView;
 
-    public Carte(){
+    public Carte(int ID, ImageView im){
         state = Card_states.PIOCHE;
+        this.ID = ID;
+        imageView = im;
     }
 
 }
