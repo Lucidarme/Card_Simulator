@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/leave_game"
-        android:text="Leave"
+        android:text="Restart"
         android:visibility="gone"/>
     <!--
         <ImageView
@@ -117,34 +117,56 @@
     </LinearLayout>
 
 
+    <RelativeLayout
+        android:id="@+id/pioche"
+        android:layout_width="57dp"
+        android:layout_height="83dp"
+        android:background="#999999"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pioche"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+
     <ImageView
         android:id="@+id/c1"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/c1"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/d1"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/d1"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
     <ImageView
         android:id="@+id/h1"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/h1"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/s1"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/s1"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/c2"
@@ -152,28 +174,32 @@
         android:layout_height="82dp"
         android:src="@drawable/c2"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/d2"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/d2"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
     <ImageView
         android:id="@+id/h2"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/h2"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/s2"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/s2"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
 
     <ImageView
@@ -182,28 +208,32 @@
         android:layout_height="82dp"
         android:src="@drawable/c3"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/d3"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/d3"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
     <ImageView
         android:id="@+id/h3"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/h3"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/s3"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/s3"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/c4"
@@ -211,28 +241,32 @@
         android:layout_height="82dp"
         android:src="@drawable/c4"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/d4"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/d4"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
     <ImageView
         android:id="@+id/h4"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/h4"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/s4"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/s4"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/c5"
@@ -240,28 +274,32 @@
         android:layout_height="82dp"
         android:src="@drawable/c5"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/d5"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/d5"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
     <ImageView
         android:id="@+id/h5"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/h5"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/s5"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/s5"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/c6"
@@ -269,28 +307,32 @@
         android:layout_height="82dp"
         android:src="@drawable/c6"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/d6"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/d6"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
     <ImageView
         android:id="@+id/h6"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/h6"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/s6"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/s6"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/c7"
@@ -298,28 +340,32 @@
         android:layout_height="82dp"
         android:src="@drawable/c7"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/d7"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/d7"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
     <ImageView
         android:id="@+id/h7"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/h7"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/s7"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/s7"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/c8"
@@ -327,28 +373,32 @@
         android:layout_height="82dp"
         android:src="@drawable/c8"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/d8"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/d8"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
     <ImageView
         android:id="@+id/h8"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/h8"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/s8"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/s8"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/c9"
@@ -356,28 +406,32 @@
         android:layout_height="82dp"
         android:src="@drawable/c9"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/d9"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/d9"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
     <ImageView
         android:id="@+id/h9"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/h9"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/s9"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/s9"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/c10"
@@ -385,28 +439,32 @@
         android:layout_height="82dp"
         android:src="@drawable/c10"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/d10"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/d10"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
     <ImageView
         android:id="@+id/h10"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/h10"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/s10"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/s10"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/c11"
@@ -414,28 +472,32 @@
         android:layout_height="82dp"
         android:src="@drawable/c11"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/d11"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/d11"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
     <ImageView
         android:id="@+id/h11"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/h11"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/s11"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/s11"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/c12"
@@ -443,28 +505,32 @@
         android:layout_height="82dp"
         android:src="@drawable/c12"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/d12"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/d12"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
     <ImageView
         android:id="@+id/h12"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/h12"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/s12"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/s12"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
     <ImageView
         android:id="@+id/c13"
@@ -472,39 +538,109 @@
         android:layout_height="82dp"
         android:src="@drawable/c13"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/d13"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/d13"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
     <ImageView
         android:id="@+id/h13"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/h13"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <ImageView
         android:id="@+id/s13"
         android:layout_width="56dp"
         android:layout_height="82dp"
         android:src="@drawable/s13"
         android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-    <ImageView
+
+    <RelativeLayout
+        android:id="@+id/relat_compteur"
+        android:layout_width="57dp"
+        android:layout_height="83dp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <TextView
+            android:id="@+id/compteurPioche"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="52"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"/>
+    </RelativeLayout>
+
+
+    <View
+        android:id="@+id/hand_border"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000000"
+        android:layout_above="@+id/plateau_carte"></View>
+    <RelativeLayout
         android:id="@+id/plateau_carte"
-        android:layout_width="300dp"
-        android:layout_height="50dp"
-        android:src="@drawable/plateau_carte"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="40dp" />
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Votre Main"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/tapis"
+        android:layout_width="450dp"
+        android:layout_height="450dp"
+        android:layout_below="@+id/player2"
+        android:layout_toRightOf="@+id/pioche"
+        android:layout_toEndOf="@+id/pioche"
+        android:layout_above="@+id/hand_border"
+        android:background="@drawable/border"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:text="Tapis de jeu"/>
+    </RelativeLayout>
+
+    <Button
+        android:text="retourner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tapis"
+        android:layout_toRightOf="@+id/sign_out_button"
+        android:id="@+id/retourner"
+        android:layout_toLeftOf="@+id/tapis"
+        android:layout_toStartOf="@+id/tapis" />
+
+    <Button
+        android:text="mélanger"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/melanger"
+        android:layout_below="@+id/pioche"
+        android:layout_toLeftOf="@+id/tapis"
+        android:layout_toStartOf="@+id/tapis" />
 
 
 </RelativeLayout>
