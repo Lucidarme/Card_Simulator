@@ -54,6 +54,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
     private static float dropOnHand = 6666f;
     private static float dropOnPioche = 7777f;
     private static float dropOnTapis = 8888f;
+    private static float mix = 4444f;
+    private static float returncard = 3333f;
 
     private static int RC_SIGN_IN = 9001;
     final static int RC_SELECT_PLAYERS = 10000;
@@ -247,12 +249,9 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             @Override
             public void onClick(View v) {
                 for(Carte c : tab_carte){
-                    if(c.isSelected){
-                        if(c.isFront())
-                            c.setBack();
-                        else
-                            c.setFront();
-                    }
+                    if(c.isSelected && c.state != Card_states.PIOCHE)
+                    returncard(c, false);
+
                 }
             }
         });
@@ -262,7 +261,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         melanger.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mixCard();
+                mixCard(false);
             }
         });
     }
@@ -537,6 +536,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
 
         if(oldState == Card_states.PIOCHE)
             setPiocheCompteur();
+        if(oldState == Card_states.AUTRES)
+            setCardListener(carte);
 
         if(!isReceived){
             try{
@@ -559,6 +560,8 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         carte.imageView.setY(pioche.getY());
         carte.imageView.setScaleX(0.75f);
         carte.imageView.setScaleY(0.75f);
+        if(carte.state == Card_states.AUTRES)
+            setCardListener(carte);
         carte.state = Card_states.PIOCHE;
         carte.setBack();
         for(Carte c : tab_carte){
@@ -646,8 +649,28 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
         }
     }
 
+    public void returncard(Carte carte, boolean isReceived){
+        if(carte.state != Card_states.AUTRES){
+            if(carte.isFront())
+                carte.setBack();
+            else
+                carte.setFront();
+        }
+        carte.isSelected = false;
+        carte.imageView.setColorFilter(Color.TRANSPARENT);
+        if(!isReceived && carte.state != Card_states.MOI){
+            try{
+                byte[] message;
+                message = ByteBuffer.allocate(12).putFloat(returncard).putFloat(0f).putInt(carte.ID).array();
+                Games.RealTimeMultiplayer.sendUnreliableMessageToOthers(mGoogleApiClient, message, mRoomId);
+            }catch(Exception e){
 
-    public void mixCard(){
+            }
+        }
+
+    }
+
+    public void mixCard(boolean isReceived){
         List<Carte> cartePioche = new ArrayList<>();
         for(Carte c : tab_carte){
             if(c.state == Card_states.PIOCHE)
@@ -658,6 +681,17 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             c.imageView.bringToFront();
         }
         setPiocheCompteur();
+        if(!isReceived){
+
+            try{
+                byte[] message;
+                message = ByteBuffer.allocate(12).putFloat(mix).putFloat(0f).putInt(0).array();
+                Games.RealTimeMultiplayer.sendUnreliableMessageToOthers(mGoogleApiClient, message, mRoomId);
+            }catch(Exception e){
+
+            }
+        }
+
 
         Toast.makeText(this, "La pioche a été mélangé !" , Toast.LENGTH_LONG).show();
     }
@@ -704,8 +738,11 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             dropOnPioche(carte, true);
         }else if(x == dropOnTapis){
             dropOnTapis(carte, true);
-        }
-        else {
+        } else if(x == mix){
+            mixCard(true);
+        }else if(x == returncard){
+            returncard(carte, true);
+        }else {
             carte.imageView.setX(percentToDpWidth(x));
             carte.imageView.setY(Height - percentToDpHeight(y));
         }
@@ -1123,10 +1160,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
             if(y >= 9 && readyReverse){
                 for(Carte c : tab_carte){
                     if(c.isSelected && c.state != Card_states.PIOCHE){
-                        if(c.isFront())
-                            c.setBack();
-                        else
-                            c.setFront();
+                        returncard(c, false);
                     }
 
                 }
@@ -1146,7 +1180,7 @@ public class MainActivity extends AppCompatActivity implements GoogleApiClient.C
                 thirdStep = true;
             }
             if(firstStep && secondStep && thirdStep && x < -7){
-                mixCard();
+                mixCard(false);
                 firstStep = false;
                 secondStep = false;
                 thirdStep = false;
